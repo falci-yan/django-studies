@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
+<div class="container">
         <table>
         <tr>   
             <th>id</th>
@@ -15,12 +7,10 @@
         </tr>
         {% for usuario in usuarios %}
         <tr>
-            <td>{{cadastro_usuario.id}}</td>
-            <td>{{cadastro_usuario.nome}}</td>
-            <td>{{cadastro_usuario.idade}}</td>
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.idade}}</td>
         </tr>
         {% endfor %}
     </table>
     </div>
-</body>
-</html>

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Usuario
 
 # Create your views here.
 def home(request):
@@ -6,14 +7,14 @@ def home(request):
 
 def cadastra_usuarios(request):
 
-    novo_usuario = cadastra_usuarios()
-    novo_usuario.nome = request.POST('campo_nome')
-    novo_usuario.idade = request.POST('campo_idade')
+    novo_usuario = Usuario()
+    novo_usuario.nome = request.POST.get('campo_nome')
+    novo_usuario.idade = request.POST.get('campo_idade')
     novo_usuario.save()
 
     usuarios={
-        'usuarios': cadastra_usuarios.objects.all()
+        'usuarios': Usuario.objects.all()
     }
 
     #Retornar os dados para a página de listagem de usuários
-    return render(request, 'lista_usuarios.html', cadastra_usuarios)
+    return render(request, 'lista_usuarios.html', usuarios)
